@@ -63,9 +63,7 @@ func main() {
 		// ルールに従ってマッチング
 		for _, rule := range rules {
 			re, _ := regexp.Compile(rule.Pattern)
-			matched := re.MatchString(fileName)
-			if matched {
-				// if strings.Contains(fileName, rule.Pattern) {
+			if re.MatchString(fileName) {
 				// 移動先ディレクトリのパスを構築
 				destDir := filepath.Join(*destBase, rule.DestDir)
 				destPath := filepath.Join(destDir, fileName)
